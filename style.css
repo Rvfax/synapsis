@@ -10,7 +10,7 @@ body{
     min-height: 100vh;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 100px) {
     .excel, .parent1 {
       width: 100%;
       float: left;
