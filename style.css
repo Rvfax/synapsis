@@ -53,16 +53,16 @@ body{
 }
 
 .excel{
-    float: right;
+    float: left;
     position: relative;
     top: 5px;
     width: 90,5%;
     
 }
 
-@media (max-width: 100px) {
+@media (max-width: 10px) {
     .excel {
-      width: 100%;
+      
       float: left;
     }
 }
