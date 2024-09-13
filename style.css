@@ -53,7 +53,7 @@ body{
 }
 
 .excel{
-    float: left;
+    float: right;
     position: relative;
     top: 5px;
     width: 90,5%;
