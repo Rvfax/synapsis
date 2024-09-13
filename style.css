@@ -1,7 +1,13 @@
 body, html {
-    background-color: rgb(162, 162, 162);
-    background: linear-gradient(to bottom right, rgb(148, 212, 228), rgb(122, 230, 171) ) ;
     height: 100%;
+}
+
+body{
+    background: linear-gradient(to bottom right, rgb(148, 212, 228), rgb(122, 230, 171) ) ;
+    background-attachment: fixed;
+    background-size: 100% 200%;
+    background-repeat: no-repeat;
+    min-height: 100vh;
 }
 
 .parent1{
