@@ -4,8 +4,8 @@ body, html {
     height: 100%;
 }
 
-.index{
-text-align: center;
+.parent1{
+    width: 100%;
 }
 
 .menu{
@@ -19,7 +19,7 @@ text-align: center;
 }
 
 .menu1{
-    width: 100%;
+    width: 90,5%;
 }
 
 .m1{border-radius: 10px; background-color: rgba(114, 186, 254, 0.792);
@@ -50,6 +50,7 @@ text-align: center;
     float: left;
     position: relative;
     top: 5px;
+    width: 90,5%;
     
 }
 
