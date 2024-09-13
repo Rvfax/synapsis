@@ -11,7 +11,7 @@ body{
 }
 
 @media (max-width: 100px) {
-    .excel, .parent1 {
+    .excel {
       width: 100%;
       float: left;
     }
