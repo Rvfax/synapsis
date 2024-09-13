@@ -10,13 +10,6 @@ body{
     min-height: 100vh;
 }
 
-@media (max-width: 100px) {
-    .excel {
-      width: 100%;
-      float: left;
-    }
-}
-
 .parent1{
     width: 100%;
 }
@@ -61,12 +54,18 @@ body{
 
 .excel{
     float: right;
-    
+    position: relative;
     top: 5px;
     width: 90,5%;
     
 }
 
+@media (max-width: 100px) {
+    .excel {
+      width: 100%;
+      float: left;
+    }
+}
 
 
 
