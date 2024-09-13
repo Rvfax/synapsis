@@ -3,9 +3,9 @@ body, html {
 }
 
 body{
-    background: linear-gradient(to bottom right, rgb(148, 212, 228), rgb(122, 230, 171) ) ;
+    background: linear-gradient(to bottom right, rgb(148, 212, 228), rgb(122, 230, 171), rgb(78, 237, 149) ) ;
     background-attachment: fixed;
-    background-size: 100% 200%;
+    background-size: 500%;
     background-repeat: no-repeat;
     min-height: 100vh;
 }
