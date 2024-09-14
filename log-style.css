@@ -29,10 +29,4 @@ body{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-@media only screen and (max-width: 1000px) {
-    .login1 {
-      width: 200px;
-      height: 150px;
-      scale: 0;
-    }
-}
+
