@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl-PL">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Synapsis Online</title>
+  <title>Synapsis Online Local</title>
   <link rel="stylesheet" href="log-style.css">
   <link rel="icon" href="img/logo.png">
 </head>
@@ -28,8 +28,10 @@
     </div>
 
   <script>
-    const validUsername = "synapsis"; // Statyczny login
-    const validPassword = "synapsis"; // Statyczne hasło
+    const validUsername1 = "synapsis"; // Statyczny login
+    const validPassword1 = "synapsis"; // Statyczne hasło
+    const validUsername2 = "admin"; // Statyczny login
+    const validPassword2 = "admin"; // Statyczne hasło
 
     const loginForm = document.getElementById('loginForm');
 
@@ -40,12 +42,18 @@
       const password = document.getElementById('password').value;
 
       // Sprawdza, czy login i hasło są poprawne
-      if (username === validUsername && password === validPassword) {
+      if (username === validUsername1 && password === validPassword1) {
         // Przekierowuje na inną podstronę
         window.location.href = "home.html"; // Tutaj podaj adres podstrony, na którą chcesz przekierować
       } else {
+        if (username === validUsername2 && password === validPassword2) {
+        // Przekierowuje na inną podstronę
+        window.location.href = "adm.html"; // Tutaj podaj adres podstrony, na którą chcesz przekierować
+      } else {
         alert('Błędny login lub hasło!');
       }
+      }
+
     });
   </script>
 
