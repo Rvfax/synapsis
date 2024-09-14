@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logowanie</title>
+  <link rel="stylesheet" href="log-style.css">
+</head>
+<body>
+
+    <div class="center">
+<div class="login1">
+
+  <h2>Logowanie</h2>
+  <form id="loginForm">
+    <label for="username">Login:</label>
+    <input type="text" id="username" name="username"><br><br>
+
+    <label for="password">Hasło:</label>
+    <input type="password" id="password" name="password"><br><br>
+
+    <button type="submit">Zaloguj</button>
+  </form>
+
+</div>
+    </div>
+
+  <script>
+    const validUsername = "synapsis"; // Statyczny login
+    const validPassword = "synapsis"; // Statyczne hasło
+
+    const loginForm = document.getElementById('loginForm');
+
+    loginForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // Blokuje domyślne zachowanie formularza
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Sprawdza, czy login i hasło są poprawne
+      if (username === validUsername && password === validPassword) {
+        // Przekierowuje na inną podstronę
+        window.location.href = "home.html"; // Tutaj podaj adres podstrony, na którą chcesz przekierować
+      } else {
+        alert('Błędny login lub hasło!');
+      }
+    });
+  </script>
+
+</body>
+</html>
