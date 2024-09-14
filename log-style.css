@@ -31,6 +31,8 @@ body{
 
 @media only screen and (max-width: 1000px) {
     .login1 {
-      scale: 50%;
+      width: 200px;
+      height: 150px;
+      scale: 0;
     }
 }
