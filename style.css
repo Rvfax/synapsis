@@ -57,13 +57,9 @@ body{
 .excel{
     float: left;
     position: relative;
-    top: 5px;
-    width: 90,5vh;
-    
-}
-
-@media (max-width: 1000px) {
-   .Excel {width: 800px}
+    width: 90,5%;
+    height: 700px; 
+    background-color: Gray;
 }
 
 
