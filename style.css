@@ -57,7 +57,7 @@ body{
 .excel{
     float: left;
     position: relative;
-    width: 90%;
+    width: 70%;
     height: 700px; 
     background-color: Gray;
 }
