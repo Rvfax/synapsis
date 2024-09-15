@@ -46,8 +46,7 @@ body{
     padding: 3px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
-    width: 22%;
-    height: 30%;
+    width: 20,5%;
 }
 
 .w1:hover{
