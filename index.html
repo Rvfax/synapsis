@@ -10,12 +10,13 @@
 <body>
 
 <script>
-  // Sprawdź, czy użytkownik odwiedza stronę GitHub Pages
-  if (window.location.hostname === "https://rvfax.github.io/synapsis") {
-    // Przekieruj na zabezpieczoną stronę Workers.dev
-    window.location.href = "https://synapsis.rafal-trzmielewski.workers.dev";
+  // Sprawdź, czy użytkownik nie jest już na stronie workers.dev
+  if (window.location.hostname !== 'https://synapsis.rafal-trzmielewski.workers.dev') {
+    // Przekieruj użytkownika na zabezpieczoną stronę
+    window.location.href = "https://synapsis.rafal-trzmielewski.workers.dev" + window.location.pathname;
   }
 </script>
+
 
 
   
