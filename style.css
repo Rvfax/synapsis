@@ -34,11 +34,6 @@ body{
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#m2{border-radius: 10px; background-color: rgba(114, 186, 254, 0.792);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
 
 .w1{
     background-color: rgba(255, 255, 255, 0.666);
