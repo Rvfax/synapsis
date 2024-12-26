@@ -6,6 +6,22 @@
     <title>Synapsis Online</title>
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .timer {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+    </style>
 </head>
 <body>
 <div class="parent1">    
@@ -16,6 +32,43 @@
         <a href="home.html"><div class="m1"><center><h2>Home</h2></center></div></a>
 
     </div>
+
+    <div class="timer" id="timer">00:00:00</div>
+    <button onclick="startTimer()">Start</button>
+    <button onclick="stopTimer()">Stop</button>
+    <button onclick="resetTimer()">Reset</button>
+
+    <script>
+        let timerInterval;
+        let elapsedTime = 0;
+
+        function formatTime(seconds) {
+            const hrs = Math.floor(seconds / 3600);
+            const mins = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
+            return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function startTimer() {
+            if (!timerInterval) {
+                timerInterval = setInterval(() => {
+                    elapsedTime++;
+                    document.getElementById('timer').innerText = formatTime(elapsedTime);
+                }, 1000);
+            }
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
+
+        function resetTimer() {
+            stopTimer();
+            elapsedTime = 0;
+            document.getElementById('timer').innerText = "00:00:00";
+        }
+    </script>
 
 </div>
 </body>
