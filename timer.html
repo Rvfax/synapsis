@@ -102,17 +102,17 @@
     <button onclick="stopTimer()">Stop</button>
     <button onclick="resetTimer()">Reset</button>
 </div>
-<input type="button" onclick="openModal()"><div class="w1">
+<div class="w1" onclick="openModal('pdf/LBL.pdf')">
 <center><img src="img/cube1.png" alt="?" height="150px"></center><h1>LBL</h1>    
-</div></input>
+</div>
 
-    <!-- Okno modalne -->
+     <!-- Okno modalne -->
     <div class="modal" id="modal">
         <div class="modal-content">
             <!-- Przycisk zamykający -->
             <button class="close-btn" onclick="closeModal()">X</button>
             <!-- Wbudowany PDF -->
-            <iframe src="pdf/LBL.pdf"></iframe>
+            <iframe id="pdfFrame" src=""></iframe>
         </div>
     </div>
 
