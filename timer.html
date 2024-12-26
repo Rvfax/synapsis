@@ -34,29 +34,31 @@
     </div>
 
 <div id="time">
-    <div class="timer" id="timer">00:00:00</div>
+    <div class="timer" id="timer">00:00:00.000</div>
     <button onclick="startTimer()">Start</button>
     <button onclick="stopTimer()">Stop</button>
     <button onclick="resetTimer()">Reset</button>
 </div>
 
-    <script>
+     <script>
         let timerInterval;
-        let elapsedTime = 0;
+        let elapsedTime = 0; // W milisekundach
 
-        function formatTime(seconds) {
-            const hrs = Math.floor(seconds / 3600);
-            const mins = Math.floor((seconds % 3600) / 60);
-            const secs = seconds % 60;
-            return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        function formatTime(milliseconds) {
+            const hrs = Math.floor(milliseconds / 3600000);
+            const mins = Math.floor((milliseconds % 3600000) / 60000);
+            const secs = Math.floor((milliseconds % 60000) / 1000);
+            const millis = milliseconds % 1000;
+            return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}.${millis.toString().padStart(3, '0')}`;
         }
 
         function startTimer() {
             if (!timerInterval) {
+                const startTime = Date.now() - elapsedTime;
                 timerInterval = setInterval(() => {
-                    elapsedTime++;
+                    elapsedTime = Date.now() - startTime;
                     document.getElementById('timer').innerText = formatTime(elapsedTime);
-                }, 1000);
+                }, 10); // Aktualizacja co 10 ms
             }
         }
 
@@ -68,7 +70,7 @@
         function resetTimer() {
             stopTimer();
             elapsedTime = 0;
-            document.getElementById('timer').innerText = "00:00:00";
+            document.getElementById('timer').innerText = "00:00:00.000";
         }
     </script>
 
