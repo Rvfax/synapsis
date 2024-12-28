@@ -74,24 +74,27 @@ body{
 }
 
 /* Strzałka do zwijania */
-        .toggle-arrow {
-            position: absolute;
-            top: 20px;
-            right: -15px;
+        /* Styl dla przycisku do zwijania/rozwijania */
+        .toggle-btn {
             background-color: #007BFF;
             color: white;
             border: none;
-            cursor: pointer;
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            font-size: 16px;
+            position: absolute;
+            bottom: 20px; /* Odsunięcie od dolnej krawędzi paska */
+            left: 50%; /* Wycentrowanie w poziomie */
+            transform: translateX(-50%); /* Dokładne wyśrodkowanie */
+            transition: transform 0.3s;
         }
 
-        .toggle-arrow:hover {
+        .toggle-btn:hover {
             background-color: #0056b3;
         }
 
