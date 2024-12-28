@@ -136,7 +136,9 @@ body{
     display: none;
 }
 
-
+#logo #mini-logo{
+    cursor: not-allowed;
+}
 
 
 
