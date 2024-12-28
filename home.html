@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Synapsis Online</title>
+    <title>Synapsis Online Local</title>
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="style.css">
 
@@ -62,12 +62,11 @@
 <body>
 <div class="parent1">    
     <div class="menu" id="menu">
-        
-        <img src="img/logo.png" alt="Synapsis Online" width="140" id="logo" style="border-radius: 10px;">
-        
-        <a href="home.html"><div class="m1"><center><h2>Home</h2></center></div></a>
+        <img src="img/logo.png" alt="Synapsis Online" id="logo" style="border-radius: 10px;">
+        <img src="img/small-logo.jpg" alt="S" id="mini-logo" style="border-radius: 10px;">
+        <a href="home.html"><div class="m1" id="home-btn"><center><h2>Home</h2></center></div></a>
         <a href="index.html"><div class="l1" style="display: none;"><center><h2>Logout</h2></center></div></a>
-
+        <button class="toggle-btn" onclick="toggleMenu()"><b>←</b></button>
     </div>
 
 <div class="menu1">
@@ -132,6 +131,32 @@ function tajne(){
             pdfFrame.src = ""; // Czyści zawartość iframe
             modal.style.display = "none";
         }
+
+
+
+        window.onload = function() {
+    // Ustawienie menu jako zwinięte przy załadowaniu strony
+    const menu = document.getElementById("menu");
+    menu.classList.add("collapsed");  // Ustawienie klasy collapsed, aby menu było zwinięte na początku
+
+    // Zaktualizowanie widoczności przycisku Home
+    const homeButton = document.getElementById("home-btn");
+    homeButton.style.display = "none"; // Ukrycie przycisku Home na początku
+};
+
+        function toggleMenu() {
+    const menu = document.getElementById("menu");
+    const homeButton = document.getElementById("home-btn");
+    
+    menu.classList.toggle("collapsed"); // Przełączanie stanu zwinięcia menu
+    
+    // Zmiana widoczności przycisku Home
+    if (menu.classList.contains("collapsed")) {
+        homeButton.style.display = "none"; // Ukrycie przycisku Home, gdy menu jest zwinięte
+    } else {
+        homeButton.style.display = "block"; // Pokazanie przycisku Home, gdy menu jest rozwinięte
+    }
+}
 </script>
     
 </body>
