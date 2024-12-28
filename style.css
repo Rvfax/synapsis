@@ -23,6 +23,8 @@ body{
     padding: 6px;
     margin: 4px;
     border-radius: 5px;
+    position: relative;
+    transition: width 0.3s ease;
 }
 
 .menu1{
@@ -70,8 +72,69 @@ body{
 }
 
 
+.menu.collapsed {
+    width: 2,5%;
+}
 
+.menu img#logo {
+    width: 140px;
+    margin: 10px auto;
+    display: block;
+    transition: opacity 0.3s ease, display 0.3s ease;
+}
 
+.menu.collapsed img#logo {
+    display: none; /* Usunięcie miejsca zajmowanego przez stare logo */
+}
+
+.menu.collapsed img#mini-logo {
+    display: block; /* Mini-logo pojawia się */
+    opacity: 1;
+    width: 40px;
+    margin: 10px auto;
+}
+
+.menu img#mini-logo {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease, display 0.3s ease;
+}
+
+.toggle-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: rgba(21, 142, 255, 0.8);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 10; /* Aby przycisk był zawsze widoczny */
+}
+
+.toggle-btn:hover {
+    background-color: rgba(80, 167, 248, 0.8);
+}
+
+.menu.collapsed .toggle-btn {
+    left: 50%; /* Pozycja w centrum nawet po zwinięciu */
+    transform: translate(-50%, 0) rotate(180deg); /* Rotacja przy zwiniętym pasku */
+}
+
+/* Ukrywanie przycisku Home, gdy pasek boczny jest zwinięty */
+#home-btn {
+    display: block;
+    transition: display 0.3s ease;
+}
+
+/* Ukrywanie przycisku Home po zwinięciu menu */
+.menu.collapsed #home-btn {
+    display: none;
+}
 
 
 
