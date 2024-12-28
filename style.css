@@ -25,6 +25,10 @@ body{
     border-radius: 5px;
 }
 
+.menu.collapsed{
+    width: 4%;
+}
+
 .menu1{
     width: 90,5%;
 }
