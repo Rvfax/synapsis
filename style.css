@@ -73,7 +73,27 @@ body{
     background-color: Gray;
 }
 
+/* Strzałka do zwijania */
+        .toggle-arrow {
+            position: absolute;
+            top: 20px;
+            right: -15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
 
+        .toggle-arrow:hover {
+            background-color: #0056b3;
+        }
 
 
 
