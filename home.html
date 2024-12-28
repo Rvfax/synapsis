@@ -134,17 +134,19 @@ function tajne(){
             modal.style.display = "none";
         }
 
-        const sidebar = document.getElementById("menu");
-        const toggleArrow = document.getElementById("toggleArrow");
+        const sidebar = document.getElementById('sidebar');
+        const toggleBtn = document.getElementById('toggle-btn');
+        const logoImg = document.getElementById('logo-img');
 
-        // Funkcja przełączająca zwijanie/rozwijanie
-        toggleArrow.addEventListener("click", () => {
-            sidebar.classList.toggle("collapsed");
-            // Zmień kierunek strzałki
-            if (sidebar.classList.contains("collapsed")) {
-                toggleArrow.innerHTML = "&gt;"; // Strzałka w prawo
+        // Dodanie obsługi kliknięcia
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Zmiana logo na mniejsze przy zwinięciu
+            if (sidebar.classList.contains('collapsed')) {
+                logoImg.src = "small-logo.png"; // Wgraj mniejsze logo z literką
             } else {
-                toggleArrow.innerHTML = "&lt;"; // Strzałka w lewo
+                logoImg.src = "large-logo.png"; // Wgraj duże logo
             }
         });
 </script>
