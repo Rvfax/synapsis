@@ -25,10 +25,6 @@ body{
     border-radius: 5px;
 }
 
-.menu.collapsed{
-    width: 4%;
-}
-
 .menu1{
     width: 90,5%;
 }
@@ -73,35 +69,16 @@ body{
     background-color: Gray;
 }
 
-/* Strzałka do zwijania */
-        /* Styl dla przycisku do zwijania/rozwijania */
-        .toggle-btn {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            font-size: 16px;
-            position: absolute;
-            bottom: 20px; /* Odsunięcie od dolnej krawędzi paska */
-            left: 50%; /* Wycentrowanie w poziomie */
-            transform: translateX(-50%); /* Dokładne wyśrodkowanie */
-            transition: transform 0.3s;
-        }
-
-        .toggle-btn:hover {
-            background-color: #0056b3;
-        }
 
 
-        .menu.collapsed .toggle-btn {
-            transform: translateX(-50%) rotate(180deg); /* Obracanie strzałki */
-        }
+
+
+
+
+
+
+
+
 
 
 
