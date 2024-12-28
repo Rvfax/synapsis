@@ -99,6 +99,11 @@ body{
         }
 
 
+        .menu.collapsed .toggle-btn {
+            transform: translateX(-50%) rotate(180deg); /* Obracanie strzałki */
+        }
+
+
 
 
 
