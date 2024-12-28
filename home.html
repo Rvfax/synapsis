@@ -66,8 +66,6 @@
         <img src="img/logo.png" alt="Synapsis Online" width="140" id="logo" style="border-radius: 10px;">
         
         <a href="home.html"><div class="m1"><center><h2>Home</h2></center></div></a>
-        <!-- Przycisk zwijania/rozwijania -->
-        <button class="toggle-btn" id="toggle-btn">➔</button>
         <a href="index.html"><div class="l1" style="display: none;"><center><h2>Logout</h2></center></div></a>
 
     </div>
@@ -134,22 +132,6 @@ function tajne(){
             pdfFrame.src = ""; // Czyści zawartość iframe
             modal.style.display = "none";
         }
-
-        const sidebar = document.getElementById('menu');
-        const toggleBtn = document.getElementById('toggle-btn');
-        const logoImg = document.getElementById('logo');
-
-        // Dodanie obsługi kliknięcia
-        toggleBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('collapsed');
-
-            // Zmiana logo na mniejsze przy zwinięciu
-            if (sidebar.classList.contains('collapsed')) {
-                logoImg.src = "img/small-logo.png"; // Wgraj mniejsze logo z literką
-            } else {
-                logoImg.src = "img/logo.png"; // Wgraj duże logo
-            }
-        });
 </script>
     
 </body>
