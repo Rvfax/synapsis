@@ -61,7 +61,7 @@
 </head>
 <body>
 <div class="parent1">    
-    <div class="menu">
+    <div class="menu" id="menu">
         
         <img src="img/logo.png" alt="Synapsis Online" width="140" style="border-radius: 10px;">
         
@@ -133,6 +133,20 @@ function tajne(){
             pdfFrame.src = ""; // Czyści zawartość iframe
             modal.style.display = "none";
         }
+
+        const sidebar = document.getElementById("menu");
+        const toggleArrow = document.getElementById("toggleArrow");
+
+        // Funkcja przełączająca zwijanie/rozwijanie
+        toggleArrow.addEventListener("click", () => {
+            sidebar.classList.toggle("collapsed");
+            // Zmień kierunek strzałki
+            if (sidebar.classList.contains("collapsed")) {
+                toggleArrow.innerHTML = "&gt;"; // Strzałka w prawo
+            } else {
+                toggleArrow.innerHTML = "&lt;"; // Strzałka w lewo
+            }
+        });
 </script>
     
 </body>
