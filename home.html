@@ -63,10 +63,11 @@
 <div class="parent1">    
     <div class="menu" id="menu">
         
-        <img src="img/logo.png" alt="Synapsis Online" width="140" style="border-radius: 10px;">
+        <img src="img/logo.png" alt="Synapsis Online" width="140" id="logo" style="border-radius: 10px;">
         
         <a href="home.html"><div class="m1"><center><h2>Home</h2></center></div></a>
-        <button class="toggle-btn" id="toggle-btn">&lt;</button>
+        <!-- Przycisk zwijania/rozwijania -->
+        <button class="toggle-btn" id="toggle-btn">➔</button>
         <a href="index.html"><div class="l1" style="display: none;"><center><h2>Logout</h2></center></div></a>
 
     </div>
@@ -134,9 +135,9 @@ function tajne(){
             modal.style.display = "none";
         }
 
-        const sidebar = document.getElementById('sidebar');
+        const sidebar = document.getElementById('menu');
         const toggleBtn = document.getElementById('toggle-btn');
-        const logoImg = document.getElementById('logo-img');
+        const logoImg = document.getElementById('logo');
 
         // Dodanie obsługi kliknięcia
         toggleBtn.addEventListener('click', () => {
@@ -146,7 +147,7 @@ function tajne(){
             if (sidebar.classList.contains('collapsed')) {
                 logoImg.src = "small-logo.png"; // Wgraj mniejsze logo z literką
             } else {
-                logoImg.src = "large-logo.png"; // Wgraj duże logo
+                logoImg.src = "logo.png"; // Wgraj duże logo
             }
         });
 </script>
