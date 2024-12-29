@@ -55,6 +55,9 @@ body{
     padding: 3px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;        /* Ukrywa nadmiar tekstu */
+    text-overflow: ellipsis; /* Pokazuje "..." zamiast nadmiaru tekstu */
+    white-space: nowrap;     /* Zapobiega łamaniu tekstu na wiele linii */
 }
 
 .w1 img {
