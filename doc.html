@@ -102,6 +102,16 @@
                const homeButton = document.getElementById("home-btn");
                homeButton.style.display = "none"; // Ukrycie przycisku Home na początku
            };
+
+        function adjustMenuHeight() {
+               const menu = document.querySelector('.menu');
+               const marginFix = 16; // Ustawiony margines (od góry i dołu)
+               menu.style.height = `calc(${window.innerHeight}px - ${marginFix}px)`;
+           }
+           
+           // Dopasuj przy ładowaniu strony i podczas zmiany rozmiaru okna
+           window.addEventListener('load', adjustMenuHeight);
+           window.addEventListener('resize', adjustMenuHeight);
     </script>    
 </body>
 </html>
