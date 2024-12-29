@@ -23,6 +23,7 @@ body{
     height: calc(100vh - 16px);
     float: left;
     padding: 6px;
+    padding-bottom: env(safe-area-inset-bottom); /* Dla urządzeń z wycięciami */
     margin: 4px;
     margin-top: 8px;
     border-radius: 5px;
