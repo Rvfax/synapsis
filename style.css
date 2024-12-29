@@ -60,7 +60,6 @@ body{
 .w1 img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Zapewnia, że zdjęcie będzie wypełniać div, zachowując proporcje */
 }
 
 .w1:hover{
