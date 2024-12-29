@@ -64,6 +64,7 @@ body{
 .w1 img {
     width: 100%;
     height: auto;
+    border-radius: 10px;
 }
 
 .w1:hover{
