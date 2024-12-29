@@ -58,8 +58,8 @@ body{
 }
 
 .w1 img {
-    width: 100%;
-    height: auto;
+    width: 250px;
+    height: 150px;
 }
 
 .w1:hover{
