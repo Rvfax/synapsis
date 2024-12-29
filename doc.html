@@ -92,6 +92,16 @@
     </div>
 
     
-    <script src="script.js"></script>    
+    <script src="script.js">
+          window.onload = function() {
+               // Ustawienie menu jako zwinięte przy załadowaniu strony
+               const menu = document.getElementById("menu");
+               menu.classList.add("collapsed");  // Ustawienie klasy collapsed, aby menu było zwinięte na początku
+           
+               // Zaktualizowanie widoczności przycisku Home
+               const homeButton = document.getElementById("home-btn");
+               homeButton.style.display = "none"; // Ukrycie przycisku Home na początku
+           };
+    </script>    
 </body>
 </html>
