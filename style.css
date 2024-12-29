@@ -58,7 +58,8 @@ body{
 }
 
 .w1 img {
-    height: 100%;
+    height: auto;
+    width: auto;
 }
 
 .w1:hover{
