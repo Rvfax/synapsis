@@ -55,7 +55,7 @@ body{
     padding: 3px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    font-size: 1vw; /* Czcionka będzie miała 5% szerokości ekranu */
+    font-size: 1,5vw; /* Czcionka będzie miała 5% szerokości ekranu */
     overflow: hidden;        /* Ukrywa nadmiar tekstu */
     text-overflow: ellipsis; /* Pokazuje "..." zamiast nadmiaru tekstu */
     white-space: nowrap;     /* Zapobiega łamaniu tekstu na wiele linii */
