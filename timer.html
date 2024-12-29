@@ -137,15 +137,25 @@
             document.getElementById('timer').innerText = "00:00:00.000";
         }
 
-window.onload = function() {
-    // Ustawienie menu jako zwinięte przy załadowaniu strony
-    const menu = document.getElementById("menu");
-    menu.classList.add("collapsed");  // Ustawienie klasy collapsed, aby menu było zwinięte na początku
+        window.onload = function() {
+            // Ustawienie menu jako zwinięte przy załadowaniu strony
+            const menu = document.getElementById("menu");
+            menu.classList.add("collapsed");  // Ustawienie klasy collapsed, aby menu było zwinięte na początku
+        
+            // Zaktualizowanie widoczności przycisku Home
+            const homeButton = document.getElementById("home-btn");
+            homeButton.style.display = "none"; // Ukrycie przycisku Home na początku
+        };
 
-    // Zaktualizowanie widoczności przycisku Home
-    const homeButton = document.getElementById("home-btn");
-    homeButton.style.display = "none"; // Ukrycie przycisku Home na początku
-};
+        function adjustMenuHeight() {
+               const menu = document.querySelector('.menu');
+               const marginFix = 16; // Ustawiony margines (od góry i dołu)
+               menu.style.height = `calc(${window.innerHeight}px - ${marginFix}px)`;
+           }
+           
+           // Dopasuj przy ładowaniu strony i podczas zmiany rozmiaru okna
+           window.addEventListener('load', adjustMenuHeight);
+           window.addEventListener('resize', adjustMenuHeight);
     </script>
 
 </div>
