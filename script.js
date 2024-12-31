@@ -59,7 +59,7 @@
                // Zmiana widoczności przycisku Home
                if (menu.classList.contains("collapsed")) {
                    homeButton.style.display = "none"; // Ukrycie przycisku Home, gdy menu jest zwinięte
-                   timer1.style.width = "90%";
+                   timer1.style.width = "93.1%";
                } else {
                    homeButton.style.display = "block"; // Pokazanie przycisku Home, gdy menu jest rozwinięte
                    timer1.style.width = "85.3%";
