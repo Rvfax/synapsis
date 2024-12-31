@@ -78,13 +78,6 @@ body{
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Zwiększenie cienia dla lepszego efektu */
 }
 
-.excel{
-    float: left;
-    position: relative;
-    width: 1020px;
-    height: 650px; 
-    background-color: Gray;
-}
 
 
 .menu.collapsed {
@@ -166,9 +159,11 @@ body{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     font-size: 1.5vw; /* Czcionka będzie miała 5% szerokości ekranu */
-    overflow: hidden;        /* Ukrywa nadmiar tekstu */
-    text-overflow: ellipsis; /* Pokazuje "..." zamiast nadmiaru tekstu */
-    white-space: nowrap;     /* Zapobiega łamaniu tekstu na wiele linii */
+}
+
+.timer:hover{
+    transform: scale(1.05); /* Delikatne powiększenie bloku */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Zwiększenie cienia dla lepszego efektu */
 }
 
 
