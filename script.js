@@ -52,14 +52,17 @@
                    function toggleMenu() {
                const menu = document.getElementById("menu");
                const homeButton = document.getElementById("home-btn");
+               let timer1 = document.getElementById("timer1");
                
                menu.classList.toggle("collapsed"); // Przełączanie stanu zwinięcia menu
                
                // Zmiana widoczności przycisku Home
                if (menu.classList.contains("collapsed")) {
                    homeButton.style.display = "none"; // Ukrycie przycisku Home, gdy menu jest zwinięte
+                   timer1.style.width = "90%";
                } else {
                    homeButton.style.display = "block"; // Pokazanie przycisku Home, gdy menu jest rozwinięte
+                   timer1.style.width = "85.3%";
                }
            }
            
