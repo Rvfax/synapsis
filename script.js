@@ -52,7 +52,7 @@
                    function toggleMenu() {
                const menu = document.getElementById("menu");
                const homeButton = document.getElementById("home-btn");
-               let timer1 = document.getElementById("timer1");
+               const timer1 = document.getElementById("timer1");
                
                menu.classList.toggle("collapsed"); // Przełączanie stanu zwinięcia menu
                
