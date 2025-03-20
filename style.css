@@ -80,7 +80,7 @@ body{
 
 
 
-.menu.collapsed {
+.menu.collapsed {F
     width: 2,5%;
 }
 
@@ -162,7 +162,7 @@ body{
 }
 
 .timer1:hover{
-    transform: scale(0.5); /* Delikatne powiększenie bloku */
+    transform: scale(1.05); /* Delikatne powiększenie bloku */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Zwiększenie cienia dla lepszego efektu */
 }
 
