@@ -175,6 +175,12 @@ body{
     font-size: 2vw;
 }
 
+@media (max-width: 768px) {
+    .timer1{
+        width: 60%;
+    }
+}
+
 
 
 
