@@ -183,6 +183,37 @@ body{
 
 
 
+/* ----------[ Doc-Oth ]---------- */
+
+#doc-oth{
+    display: flex;
+    align-items: center; /* Wyśrodkowanie w pionie */
+    justify-content: center; /* Wyśrodkowanie w poziomie (opcjonalne) */
+    height: 100vh; /* Dopasowanie wysokości do całego ekranu */
+}
+
+#do-table{
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    border-collapse: collapse;
+    font-weight: bold;
+}
+
+#do-table td {
+    padding: 10px;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    text-align: center;
+}
+
+.do-item:hover{
+    cursor: pointer;
+}
+
+
+
+
 
 
 
