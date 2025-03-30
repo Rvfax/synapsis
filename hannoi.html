@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wieża Hanoi</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .game-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60vh;
+    }
+    .tower {
+      min-width: 100px;
+      height: 300px;
+      background: lightgray;
+      margin: 0 10px;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: flex-start;
+      align-items: center;
+      border: 2px solid black;
+      border-radius: 5px;
+      padding: 5px;
+    }
+    .disk {
+      height: 20px;
+      background: blue;
+      margin: 2px 0;
+      text-align: center;
+      color: black;
+      font-weight: bold;
+      cursor: grab;
+      border-radius: 5px;
+      border: 2px solid black;
+    }
+    .selected {
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Wieża Hanoi</h1>
+  <label for="diskCount">Liczba klocków:</label>
+  <select id="diskCount">
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+  </select>
+  <button id="resetButton">Reset</button>
+  <p id="message"></p>
+  <div class="game-container">
+    <div id="tower1" class="tower"></div>
+    <div id="tower2" class="tower"></div>
+    <div id="tower3" class="tower"></div>
+  </div>
+  <script>
+    let draggedDisk = null;
+    
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("diskCount").addEventListener("change", resetGame);
+      document.getElementById("resetButton").addEventListener("click", resetGame);
+      resetGame();
+    });
+    
+    function resetGame() {
+    const numDisks = parseInt(document.getElementById("diskCount").value);
+    const towers = document.querySelectorAll(".tower");
+    const tower1 = document.getElementById("tower1");
+    const message = document.getElementById("message");
+    
+    message.textContent = "";
+    towers.forEach(tower => tower.innerHTML = "");
+    
+    // Tablica z kolorami dla klocków (możesz dodać więcej kolorów, jeśli potrzebujesz)
+    const colors = ["red", "orange", "yellow", "green", "blue", "purple", "magenta", "pink"];
+    
+    for (let i = numDisks; i > 0; i--) {
+        let disk = document.createElement("div");
+        disk.classList.add("disk");
+        disk.setAttribute("data-size", i);
+        disk.style.width = (i * 20 + 40) + "px";
+        disk.textContent = i;
+        disk.draggable = true;
+        disk.addEventListener("dragstart", dragStart);
+        // Ustaw kolor z tablicy – indeks (i-1), bo i maleje od numDisks do 1\n
+        disk.style.backgroundColor = colors[i - 1];
+        tower1.appendChild(disk);
+    }
+}
+    
+    // Dodajemy obsługę drag & drop do każdego słupka
+    document.querySelectorAll(".tower").forEach(tower => {
+      tower.addEventListener("dragover", allowDrop);
+      tower.addEventListener("drop", dropDisk);
+    });
+    
+    // Na początku sprawdzamy, czy próbujemy przeciągnąć tylko górny (ostatni) klocek
+    function dragStart(event) {
+      let parent = event.target.parentElement;
+      if (event.target !== parent.lastElementChild) {
+        event.preventDefault(); // Jeżeli nie jest ostatnim dzieckiem, nie pozwalamy na przeciąganie
+        return;
+      }
+      draggedDisk = event.target;
+      event.dataTransfer.setData("text/plain", event.target.getAttribute("data-size"));
+    }
+    
+    function allowDrop(event) {
+      event.preventDefault();
+    }
+    
+    function dropDisk(event) {
+      event.preventDefault();
+      const tower = event.currentTarget;
+      const topDisk = tower.lastElementChild;
+      
+      if (!topDisk || parseInt(draggedDisk.getAttribute("data-size")) < parseInt(topDisk.getAttribute("data-size"))) {
+        tower.appendChild(draggedDisk);
+        checkWin();
+      }
+      draggedDisk = null;
+    }
+    
+    function checkWin() {
+      const numDisks = parseInt(document.getElementById("diskCount").value);
+      const tower3 = document.getElementById("tower3");
+      if (tower3.childElementCount === numDisks) {
+        document.getElementById("message").textContent = "Gratulacje! Ukończyłeś łamigłówkę!";
+      }
+    }
+  </script>
+</body>
+</html>
