@@ -11,13 +11,21 @@
     body {
       font-family: Arial, sans-serif;
       text-align: center;
+      margin: 0;
+      padding: 0;
     }
+    h1 {
+      margin: 20px 0;
+    }
+    /* Styl głównego kontenera gry */
     .game-container {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-end; /* Wieże wyrównane do dołu */
       height: 60vh;
+      margin: 20px;
     }
+    /* Styl wież – podstawowe ustawienia na większe ekrany */
     .tower {
       min-width: 100px;
       height: 300px;
@@ -25,25 +33,44 @@
       margin: 0 10px;
       display: flex;
       flex-direction: column-reverse;
-      justify-content: flex-start;
       align-items: center;
       border: 2px solid black;
-      border-radius: 5px;
+      border-radius: 10px;
       padding: 5px;
+      position: relative;
     }
+    /* Styl klocków */
     .disk {
       height: 20px;
-      background: blue;
       margin: 2px 0;
       text-align: center;
-      color: black;
+      color: white;
       font-weight: bold;
       cursor: grab;
-      border-radius: 5px;
+      user-select: none;
+      position: relative;
       border: 2px solid black;
+      border-radius: 5px;
     }
     .selected {
-      background: red;
+      opacity: 0.7;
+    }
+    /* Responsywność – dla ekranów o szerokości do 600px */
+    @media screen and (max-width: 600px) {
+      .game-container {
+        flex-direction: column;
+        height: auto;
+      }
+      .tower {
+        min-width: 100px;
+        height: 200px;
+        margin: 10px auto;
+      }
+      .disk {
+        height: 16px;
+        margin: 1px 0;
+        font-size: 12px;
+      }
     }
   </style>
 </head>
@@ -56,7 +83,7 @@
         <button class="toggle-btn" onclick="toggleMenu()"><i class="fas fa-arrow-left"></i></button>
     </div>
   
-  <h1>Wieża Hanoi</h1>
+    <h1>Wieża Hanoi</h1>
   <label for="diskCount">Liczba klocków:</label>
   <select id="diskCount">
     <option value="3">3</option>
@@ -74,73 +101,138 @@
     <div id="tower3" class="tower"></div>
   </div>
   <script>
-    let draggedDisk = null;
-    
+    // Zmienne dla obsługi przeciągania i dotyku
+    let currentDragged = null; // dla drag&drop na PC
+    let touchDrag = { active: false, disk: null, originalTower: null, offsetX: 0, offsetY: 0 };
+
     document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("diskCount").addEventListener("change", resetGame);
       document.getElementById("resetButton").addEventListener("click", resetGame);
       resetGame();
     });
-    
+
     function resetGame() {
-    const numDisks = parseInt(document.getElementById("diskCount").value);
-    const towers = document.querySelectorAll(".tower");
-    const tower1 = document.getElementById("tower1");
-    const message = document.getElementById("message");
-    
-    message.textContent = "";
-    towers.forEach(tower => tower.innerHTML = "");
-    
-    // Tablica z kolorami dla klocków (możesz dodać więcej kolorów, jeśli potrzebujesz)
-    const colors = ["red", "orange", "yellow", "green", "blue", "purple", "magenta", "pink"];
-    
-    for (let i = numDisks; i > 0; i--) {
+      const numDisks = parseInt(document.getElementById("diskCount").value);
+      const towers = document.querySelectorAll(".tower");
+      const tower1 = document.getElementById("tower1");
+      const message = document.getElementById("message");
+      message.textContent = "";
+      towers.forEach(tower => tower.innerHTML = "");
+      for (let i = numDisks; i > 0; i--) {
         let disk = document.createElement("div");
         disk.classList.add("disk");
         disk.setAttribute("data-size", i);
         disk.style.width = (i * 20 + 40) + "px";
+        disk.style.backgroundColor = `hsl(${i * 40}, 80%, 50%)`; // każdy klocek innego koloru
         disk.textContent = i;
         disk.draggable = true;
+        // Drag & drop dla PC
         disk.addEventListener("dragstart", dragStart);
-        // Ustaw kolor z tablicy – indeks (i-1), bo i maleje od numDisks do 1\n
-        disk.style.backgroundColor = colors[i - 1];
+        disk.addEventListener("dragend", dragEnd);
+        // Obsługa dotyku dla urządzeń mobilnych
+        disk.addEventListener("touchstart", touchStart, { passive: false });
+        disk.addEventListener("touchmove", touchMove, { passive: false });
+        disk.addEventListener("touchend", touchEnd);
         tower1.appendChild(disk);
+      }
     }
-}
-    
-    // Dodajemy obsługę drag & drop do każdego słupka
+
+    // Drag & drop na PC
     document.querySelectorAll(".tower").forEach(tower => {
-      tower.addEventListener("dragover", allowDrop);
-      tower.addEventListener("drop", dropDisk);
+      tower.addEventListener("dragover", function(e) {
+        e.preventDefault();
+      });
+      tower.addEventListener("drop", dropHandler);
     });
-    
-    // Na początku sprawdzamy, czy próbujemy przeciągnąć tylko górny (ostatni) klocek
-    function dragStart(event) {
-      let parent = event.target.parentElement;
-      if (event.target !== parent.lastElementChild) {
-        event.preventDefault(); // Jeżeli nie jest ostatnim dzieckiem, nie pozwalamy na przeciąganie
+
+    function dragStart(e) {
+      // Pozwalamy przeciągać tylko górny klocek
+      if (e.target !== e.target.parentElement.lastElementChild) {
+        e.preventDefault();
         return;
       }
-      draggedDisk = event.target;
-      event.dataTransfer.setData("text/plain", event.target.getAttribute("data-size"));
+      currentDragged = e.target;
+      e.dataTransfer.setData("text/plain", e.target.getAttribute("data-size"));
     }
-    
-    function allowDrop(event) {
-      event.preventDefault();
+
+    function dragEnd(e) {
+      currentDragged = null;
     }
-    
-    function dropDisk(event) {
-      event.preventDefault();
-      const tower = event.currentTarget;
-      const topDisk = tower.lastElementChild;
-      
-      if (!topDisk || parseInt(draggedDisk.getAttribute("data-size")) < parseInt(topDisk.getAttribute("data-size"))) {
-        tower.appendChild(draggedDisk);
+
+    function dropHandler(e) {
+      e.preventDefault();
+      if (!currentDragged) return;
+      const tower = e.currentTarget;
+      let topDisk = tower.lastElementChild;
+      if (!topDisk || parseInt(currentDragged.getAttribute("data-size")) < parseInt(topDisk.getAttribute("data-size"))) {
+        tower.appendChild(currentDragged);
         checkWin();
       }
-      draggedDisk = null;
+      currentDragged = null;
     }
-    
+
+    // Obsługa dotyku dla urządzeń mobilnych
+    function touchStart(e) {
+      e.preventDefault();
+      let disk = e.target;
+      // Pozwalamy przeciągać tylko górny klocek
+      if (disk !== disk.parentElement.lastElementChild) return;
+      touchDrag.active = true;
+      touchDrag.disk = disk;
+      touchDrag.originalTower = disk.parentElement;
+      let touch = e.touches[0];
+      let rect = disk.getBoundingClientRect();
+      touchDrag.offsetX = touch.clientX - rect.left;
+      touchDrag.offsetY = touch.clientY - rect.top;
+      disk.classList.add("selected");
+    }
+
+    function touchMove(e) {
+      if (!touchDrag.active || !touchDrag.disk) return;
+      e.preventDefault();
+      let touch = e.touches[0];
+      let disk = touchDrag.disk;
+      // Ustawiamy fixed, aby klocek był widoczny na całym ekranie podczas przesuwania
+      disk.style.position = "fixed";
+      disk.style.zIndex = "1000";
+      disk.style.left = (touch.clientX - touchDrag.offsetX) + "px";
+      disk.style.top = (touch.clientY - touchDrag.offsetY) + "px";
+    }
+
+    function touchEnd(e) {
+      if (!touchDrag.active || !touchDrag.disk) return;
+      e.preventDefault();
+      let touch = e.changedTouches[0];
+      let droppedTower = null;
+      document.querySelectorAll(".tower").forEach(tower => {
+        let rect = tower.getBoundingClientRect();
+        if (touch.clientX >= rect.left && touch.clientX <= rect.right &&
+            touch.clientY >= rect.top && touch.clientY <= rect.bottom) {
+          droppedTower = tower;
+        }
+      });
+      let disk = touchDrag.disk;
+      if (droppedTower) {
+        let topDisk = droppedTower.lastElementChild;
+        if (!topDisk || parseInt(disk.getAttribute("data-size")) < parseInt(topDisk.getAttribute("data-size"))) {
+          droppedTower.appendChild(disk);
+          checkWin();
+        } else {
+          touchDrag.originalTower.appendChild(disk);
+        }
+      } else {
+        touchDrag.originalTower.appendChild(disk);
+      }
+      disk.style.position = "";
+      disk.style.zIndex = "";
+      disk.style.left = "";
+      disk.style.top = "";
+      disk.classList.remove("selected");
+      touchDrag.active = false;
+      touchDrag.disk = null;
+      touchDrag.originalTower = null;
+    }
+
     function checkWin() {
       const numDisks = parseInt(document.getElementById("diskCount").value);
       const tower3 = document.getElementById("tower3");
