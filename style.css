@@ -13,10 +13,6 @@ body{
     min-height: 100vh;
 }
 
-.parent1{
-    width: 100%;
-}
-
 .menu1 {
     width: 100%;
     height: 100%;
@@ -57,9 +53,6 @@ body{
 }
 
 @media (max-width: 768px) {
-    .menu1{
-        margin-top: 20px;
-    }
 
     .w1{
         width: 45%;
