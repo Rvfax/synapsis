@@ -62,12 +62,6 @@
     </style>
 </head>
 <body>
-<div class="parent1">
-    <div class="menu" id="menu" onclick="toggleMenu()">
-        <a href="home.html"><img src="img1/logo.png" alt="Synapsis Online" id="logo" style="border-radius: 10px;"></a>
-        <a href="home.html"><img src="img1/small-logo.jpg" alt="SYnapsis Online" id="mini-logo" style="border-radius: 10px;"></a>
-        <button class="toggle-btn" onclick="toggleMenu()"><i class="fas fa-arrow-left"></i></button>
-    </div>
     
 <div class="menu1">
     <div class="w1" onclick="openModal('pdf/Mydło-dodatek.pdf')"><center><img src="img1/mydlo.png" alt="dozownik"></center><h1>Dozownik</h1></div>
@@ -76,11 +70,27 @@
     <div class="w1" onclick="openModal('pdf/zegarki-dodatek.pdf')"><center><img src="img1/zegarek.png" alt="zegarek"></center><h1>Zegarek</h1></div>
     <div class="w1" onclick="openModal('pdf/kontroler.pdf')"><center><img src="img1/pilot.png" alt="pilot"></center><h1>Kontroler</h1></div>
     <div class="w1" onclick="openModal('pdf/T302-instrukcja.pdf')"><center><img src="img1/T302.png" alt="szczoteczka"></center><h1>Szczot T302</h1></div>
-    <div class="w1" onclick="openModal('doc-oth.html')"><center><img src="img1/" alt=""></center><h1>Inne</h1></div>
+    <div class="w1" onclick="openModal('doc-oth.html')"><center><img src="img1/blank.png" alt=""></center><h1>Inne</h1></div>
     
     
 </div>
-</div>
+
+
+<nav class="bottom-nav">
+    <img src="favico.ico" alt="logo" style="border-radius: 30px; height: 40px;">
+    <a href="home.html" class="nav-item active">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        <span>Główna</span>
+    </a>
+    <a href="#" class="nav-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+        <span>Opcja 2</span>
+    </a>
+    <a href="#" class="nav-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        <span>Profil</span>
+    </a>
+</nav>
 
 <!-- Okno modalne -->
     <div class="modal" id="modal">
