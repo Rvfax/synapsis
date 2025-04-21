@@ -62,20 +62,14 @@
     </style>
 </head>
 <body>
-<div class="parent1">    
-    <div class="menu" id="menu" onclick="toggleMenu()">
-        <a href="home.html"><img src="img1/small-logo.jpg" alt="Synapsis Online" id="logo" style="border-radius: 10px;"></a>
-        <a href="home.html"><img src="img1/small-logo.jpg" alt="SYnapsis Online" id="mini-logo" style="border-radius: 10px;"></a>
-        <a href="secret.html"><div class="m1" id="home-btn"><center><h2>Back</h2></center></div></a>
-        <button class="toggle-btn" onclick="toggleMenu()"><i class="fas fa-arrow-left"></i></button>
-    </div>
 
-<div class="timer1" id="timer1">
+    <div class="menu1">
+<center><div class="timer1" id="timer1">
     <div class="timer" id="timer">00:00:00.000</div>
     <button class="timer-button" onclick="startTimer()">Start</button>
     <button class="timer-button" onclick="stopTimer()">Stop</button>
     <button class="timer-button" onclick="resetTimer()">Reset</button>
-</div>
+</div></center>
     
 <div class="w1" onclick="openModal('pdf/LBL.pdf')">
 <center><img src="img1/cube1.png" alt="?"></center><h1>LBL</h1>    
@@ -84,8 +78,29 @@
 <div class="w1" onclick="openModal('pdf/PLL1.pdf')">
 <center><img src="img1/cube1.png" alt="?"></center><h1>PLL</h1>    
 </div>
+</div>
 
 
+<nav class="bottom-nav">
+    <a href="home.html" class="nav-item active">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        <span>Główna</span>
+    </a>
+    <a href="secret.html" class="nav-item active">
+        <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 10L3.29289 10.7071L2.58579 10L3.29289 9.29289L4 10ZM21 18C21 18.5523 20.5523 19 20 19C19.4477 19 19 18.5523 19 18L21 18ZM8.29289 15.7071L3.29289 10.7071L4.70711 9.29289L9.70711 14.2929L8.29289 15.7071ZM3.29289 9.29289L8.29289 4.29289L9.70711 5.70711L4.70711 10.7071L3.29289 9.29289ZM4 9L14 9L14 11L4 11L4 9ZM21 16L21 18L19 18L19 16L21 16ZM14 9C17.866 9 21 12.134 21 16L19 16C19 13.2386 16.7614 11 14 11L14 9Z" fill="#33363F"/>
+            </svg>
+        <span>Wróć</span>
+    </a>
+    <a href="#" class="nav-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+        <span>Opcja 2</span>
+    </a>
+    <a href="#" class="nav-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        <span>Profil</span>
+    </a>
+</nav>
     
 
      <!-- Okno modalne -->
@@ -152,6 +167,6 @@
            window.addEventListener('resize', adjustMenuHeight);
     </script>
 
-</div>
+
 </body>
 </html>
