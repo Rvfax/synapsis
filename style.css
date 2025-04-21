@@ -56,6 +56,22 @@ body{
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Zwiększenie cienia dla lepszego efektu */
 }
 
+@media (max-width: 768px) {
+    .menu1{
+        margin-top: 20px;
+    }
+
+    .w1{
+        width: 45%;
+        height: auto;
+        margin: 5px;
+    }
+
+    .w1 h1{
+        font-size: 3em;
+    }
+}
+
 /* ----------[ CUBE ]---------- */
 
 .timer1{
@@ -88,16 +104,6 @@ body{
 @media (max-width: 768px) {
     .timer1{
         display: none;
-    }
-
-    .menu1{
-        margin-top: 20px;
-    }
-
-    .w1{
-        width: 45%;
-        height: auto;
-        margin: 5px;
     }
 }
 
